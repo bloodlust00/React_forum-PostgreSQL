@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1E293B; /* slate-800 */
+  --color-primary-hover: #0F172A; /* slate-900 */
+  --color-accent: #2563EB; /* blue-600 */
+  --color-accent-hover: #1D4ED8; /* blue-700 */
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased bg-slate-50 text-slate-900 selection:bg-slate-200 selection:text-slate-800;
+  }
+}
+
+/* Minimal Solid Card */
+.premium-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important; /* slate-200 */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Focus glow utilities */
+.focus-glow {
+  @apply focus:outline-hidden focus:ring-2 focus:ring-slate-950/10 focus:border-slate-950 transition-all duration-200;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300;
+}
+
+/* Custom Chip styles */
+.chip-checkbox:checked + label {
+  @apply bg-slate-100 border-slate-900 text-slate-900 ring-1 ring-slate-900/10;
+}
+
+/* Skeleton animation */
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(226, 232, 240, 0.5) 25%,
+    rgba(241, 245, 249, 0.8) 50%,
+    rgba(226, 232, 240, 0.5) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.6s infinite;
+}
